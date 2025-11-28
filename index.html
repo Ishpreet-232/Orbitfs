@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OrbitFS - Stealth Flow v3.6</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <canvas id="wave-canvas"></canvas>
+
+    <div id="rupture-modal" class="modal-overlay">
+        <div id="modal-box" class="modal-box">
+            <h2 style="color: var(--accent-error); margin: 0 0 15px 0; text-transform: uppercase;">⚠ Critical Warning ⚠</h2>
+            <p style="color: #ffcccc; line-height: 1.6;">
+                Purging Volatile Memory (RAM).<br>
+                This action is irreversible.
+            </p>
+            <div style="margin-top: 30px; display: flex; gap: 15px; justify-content: center;">
+                <button onclick="ui.closeModal()" style="padding: 12px 25px; background: transparent; border: 1px solid #666; color: #aaa; border-radius: 12px; cursor: pointer;">Cancel</button>
+                <button onclick="commands.executeRupture()" style="padding: 12px 25px; background: var(--accent-error); border: none; color: white; font-weight: bold; border-radius: 12px; cursor: pointer; box-shadow: 0 0 20px var(--accent-error);">CONFIRM PURGE</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div>
+            <h1>OrbitFS</h1>
+            <div class="subtitle">Stealth Flow Edition v3.6</div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <span>File Registry</span>
+                <span id="file-count">0 Files</span>
+            </div>
+            <ul id="directory-list">
+                <li style="opacity:0.5; border: none; background: transparent;">(System Empty)</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <span>Volatile Memory Blocks (50 Units)</span>
+                <span id="disk-stats">0% Used</span>
+            </div>
+            <div id="disk-visualizer" class="disk-grid"></div>
+        </div>
+
+        <div class="card">
+            <div id="console-output">
+                <div>OrbitFS Core v3.6 Loaded...</div>
+                <div>Visuals: <span style="color:var(--accent-primary)">Single Profile Gradient</span></div>
+                <div>Status: <span style="color:var(--accent-secondary)">Ready</span></div>
+                <div style="margin-top:10px; opacity: 0.7">Type 'help' for commands.</div>
+            </div>
+            <div class="input-group">
+                <input type="text" id="command-input" placeholder="e.g. forge data 5.5" autocomplete="off">
+                <button id="exec-btn" class="btn-run">EXECUTE</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="core.js"></script>
+    <script src="ui.js"></script>
+    <script src="commands.js"></script>
+    <script src="wave_animation.js"></script>
+    <script src="main.js"></script>
+
+</body>
+</html>
